@@ -4,12 +4,27 @@ A local stdio MCP server for validating signed agent execution receipts against 
 
 This server wraps the `verifiable-tool-invocation-flow` Python package and exposes receipt validation as MCP tools for local clients such as Claude Desktop, Cursor, and other MCP-compatible agent runtimes.
 
+## Public package and related assets
+
+- MCP server PyPI package: https://pypi.org/project/agent-receipt-validator-mcp/0.1.1/
+- MCP server repository: https://github.com/joy7758/agent-receipt-validator-mcp
+- Core receipt toolkit: https://github.com/joy7758/verifiable-tool-invocation-flow
+- Core PyPI package: https://pypi.org/project/verifiable-tool-invocation-flow/0.1.1/
+- GitHub Marketplace Action: https://github.com/marketplace/actions/verify-agent-execution-receipt
+- Hugging Face validator demo: https://huggingface.co/spaces/joy7759/agent-receipt-validator
+
 ## What This MCP Server Does
 
 - Validates an `execution_receipt.json` payload against an `evidence_bundle.json` payload and a public key PEM.
 - Generates fresh demo artifacts using the same deterministic demo flow as the core package.
 - Summarizes verification reports into verdict, failed checks, warnings, and errors.
 - Runs locally over stdio.
+
+## Installation From PyPI
+
+```bash
+pip install agent-receipt-validator-mcp==0.1.1
+```
 
 ## Installation From Local Checkout
 
@@ -23,7 +38,7 @@ python -m pip install -e ".[test]"
 
 ## MCP Client Config
 
-Use this stdio configuration after installing the package in your local environment:
+Use this MCP client stdio configuration after installing the package in your local environment:
 
 ```json
 {
@@ -105,13 +120,6 @@ It does not replace sandboxing, IAM, access control, monitoring, or human approv
 Do not pass private keys, API tokens, confidential evidence bundles, or production receipts to untrusted MCP clients.
 
 This first release is a local stdio MCP server. Remote Streamable HTTP hosting and Smithery publication are future tasks.
-
-## Related Projects
-
-- Core repo: <https://github.com/joy7758/verifiable-tool-invocation-flow>
-- PyPI package: <https://pypi.org/project/verifiable-tool-invocation-flow/0.1.1/>
-- GitHub Action: <https://github.com/marketplace/actions/verify-agent-execution-receipt>
-- Hugging Face Space: <https://huggingface.co/spaces/joy7759/agent-receipt-validator>
 
 ## Publishing
 
