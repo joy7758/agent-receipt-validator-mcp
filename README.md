@@ -113,6 +113,20 @@ This first release is a local stdio MCP server. Remote Streamable HTTP hosting a
 - GitHub Action: <https://github.com/marketplace/actions/verify-agent-execution-receipt>
 - Hugging Face Space: <https://huggingface.co/spaces/joy7759/agent-receipt-validator>
 
+## Publishing
+
+This package is intended to be published through PyPI Trusted Publishing using GitHub Actions OIDC.
+
+Workflow:
+
+- `.github/workflows/publish.yml`
+- TestPyPI environment: `testpypi`
+- PyPI environment: `pypi`
+
+No PyPI API token is stored in this repository.
+
+Trusted Publishing must be configured once in TestPyPI/PyPI before the workflow can publish.
+
 ## Development
 
 ```bash
