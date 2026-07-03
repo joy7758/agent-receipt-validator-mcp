@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use Agent Receipt Validator MCP, please cite this software."
+title: "Agent Receipt Validator MCP"
+version: "0.1.1"
+date-released: "2026-04-21"
+type: software
+authors:
+  - family-names: "Zhang"
+    given-names: "Bin"
+    email: "joy7759@gmail.com"
+repository-code: "https://github.com/joy7758/agent-receipt-validator-mcp"
+url: "https://pypi.org/project/agent-receipt-validator-mcp/0.1.1/"
+license: "MIT"
+keywords:
+  - "agentic software"
+  - "execution evidence"
+  - "MCP"
+  - "receipt validation"
+  - "software review"
+abstract: >-
+  Agent Receipt Validator MCP is a local stdio MCP server that exposes signed
+  agent execution receipt validation, demo artifact generation, and verification
+  report summarization for MCP-compatible agent clients.

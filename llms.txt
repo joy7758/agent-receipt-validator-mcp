@@ -1,0 +1,54 @@
+# Agent Receipt Validator MCP
+
+## Summary
+
+Agent Receipt Validator MCP is a local stdio MCP server for validating signed
+agent execution receipts against evidence bundles. It wraps the
+`verifiable-tool-invocation-flow` Python package and exposes a small MCP tool
+surface for local agent runtimes.
+
+## Repository
+
+- Source repository: https://github.com/joy7758/agent-receipt-validator-mcp
+- PyPI package: https://pypi.org/project/agent-receipt-validator-mcp/0.1.1/
+- License: MIT
+- Python support: `>=3.10,<3.14`
+
+## Primary package files
+
+- `src/agent_receipt_validator_mcp/server.py`: stdio MCP server entrypoint and tool registration.
+- `src/agent_receipt_validator_mcp/tools.py`: tool implementations for validation, demo generation, and report summarization.
+- `tests/test_tools.py`: local unit tests covering valid artifacts, tampering, cross-run bundle rejection, report summarization, and malformed JSON.
+
+## Tool surface
+
+- `validate_receipt_json`: validate an execution receipt JSON string against an evidence bundle JSON string and public key PEM.
+- `generate_demo_artifacts`: generate fresh demo receipt artifacts and validate them immediately.
+- `summarize_verification_report`: summarize a verification report into verdict, failed checks, warnings, and errors.
+
+## Recommended local checks
+
+```bash
+python -m pip install -e ".[test]"
+python -m pytest tests/test_tools.py
+agent-receipt-validator-mcp --help
+python scripts/smoke_check.py
+```
+
+## Documentation map
+
+- `README.md`: user-facing installation, MCP configuration, tool descriptions, and boundary statement.
+- `docs/software-architecture.md`: architecture and dependency boundary.
+- `docs/reproducibility.md`: reproducibility workflow for installation, tests, CLI, and smoke checks.
+- `docs/release-hygiene.md`: generated-file and release hygiene notes.
+- `examples/basic-usage.md`: local walkthrough for the package.
+- `CITATION.cff`: software citation metadata.
+
+## Boundary statement for agents
+
+This package validates signed execution evidence. It does not prove semantic
+correctness of the tool output, does not prove policy correctness, does not
+protect against a compromised signer, and does not replace sandboxing, IAM,
+access control, monitoring, or human approval. Do not pass private keys, API
+tokens, confidential evidence bundles, or production receipts to untrusted MCP
+clients.

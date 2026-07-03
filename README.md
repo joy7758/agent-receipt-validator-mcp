@@ -13,6 +13,15 @@ This server wraps the `verifiable-tool-invocation-flow` Python package and expos
 - GitHub Marketplace Action: https://github.com/marketplace/actions/verify-agent-execution-receipt
 - Hugging Face validator demo: https://huggingface.co/spaces/joy7759/agent-receipt-validator
 
+## Documentation and agent-readable entry points
+
+- Agent-readable index: [llms.txt](llms.txt)
+- Software architecture: [docs/software-architecture.md](docs/software-architecture.md)
+- Reproducibility workflow: [docs/reproducibility.md](docs/reproducibility.md)
+- Release hygiene notes: [docs/release-hygiene.md](docs/release-hygiene.md)
+- Basic usage walkthrough: [examples/basic-usage.md](examples/basic-usage.md)
+- Citation metadata: [CITATION.cff](CITATION.cff)
+
 ## What This MCP Server Does
 
 - Validates an `execution_receipt.json` payload against an `evidence_bundle.json` payload and a public key PEM.
@@ -50,6 +59,21 @@ Use this MCP client stdio configuration after installing the package in your loc
   }
 }
 ```
+
+## CLI Help Surface
+
+The local command exposes a small help surface for checking the installed MCP
+server entrypoint:
+
+```bash
+agent-receipt-validator-mcp --help
+```
+
+The help output lists the stdio MCP server and the three exposed tools:
+
+- `validate_receipt_json`
+- `generate_demo_artifacts`
+- `summarize_verification_report`
 
 ## Tools
 
@@ -140,4 +164,5 @@ Trusted Publishing must be configured once in TestPyPI/PyPI before the workflow 
 ```bash
 pytest tests/test_tools.py
 agent-receipt-validator-mcp --help
+python scripts/smoke_check.py
 ```

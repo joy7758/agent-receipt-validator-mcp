@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include CITATION.cff
+include llms.txt
+recursive-include docs *.md
+recursive-include examples *.md
+recursive-include scripts *.py
